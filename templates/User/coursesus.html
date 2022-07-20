@@ -1,0 +1,283 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Courses</title>
+    <link rel="icon" type="image/x-icon" href="{%  static 'images/logo.png'%}">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Elearn project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css'%}">
+<link href="{% static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+<link href="{% static 'plugins/video-js/video-js.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/courses.css'%}">
+<link rel="stylesheet" type="text/css" href="{%static 'styles/courses_responsive.css'%}">
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+	<header class="header">
+			
+		<!-- Top Bar -->
+
+		<!-- Header Content -->
+		<div class="header_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="logo_container">
+								<a href="#">
+									<div class="logo_content d-flex flex-row align-items-end justify-content-start">
+										<div class="logo_img"><img src="{%  static 'images/logo.png'%}" alt=""></div>
+										<div class="logo_text">learn</div>
+									</div>
+								</a>
+							</div>
+							<nav class="main_nav_contaner ml-auto">
+								<ul class="main_nav">
+									<li ><a href="{% url 'index' %}">home</a></li>
+									<li><a href="{% url 'aboutus' %}">about us</a></li>
+									<li class="active"><a href="{% url 'coursesus' %}">courses</a></li>
+                                    <li><a href="{% url 'quizes' %}">Quizes</a></li>
+									<li><a href="{% url 'contactus' %}">contact</a></li>
+								</ul>
+								<div class="search_button"><i class="fa fa-search" aria-hidden="true"></i></div>
+
+								<!-- Hamburger -->
+
+								<div class="hamburger menu_mm">
+									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+								</div>
+							</nav>
+
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+        		<!-- Header Search Panel -->
+		<div class="header_search_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_search_content d-flex flex-row align-items-center justify-content-end">
+							<form action="{% url 'search' %}" method="GET" class="header_search_form">
+								<input type="search" class="search_input" placeholder="Search Courses" required="required" name="search">
+								<button type="submit" class="header_search_button d-flex flex-column align-items-center justify-content-center">
+									<i class="fa fa-search" aria-hidden="true"></i>
+								</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</header>
+
+
+	<!-- Menu -->
+
+	<div class="menu d-flex flex-column align-items-end justify-content-start text-right menu_mm trans_400">
+		<div class="menu_close_container"><div class="menu_close"><div></div><div></div></div></div>
+		<div class="search">
+			<form action="{% url 'search' %}"  method="GET" class="header_search_form menu_mm">
+				<input type="search" class="search_input menu_mm" placeholder="Search Courses" required="required" name="search">
+				<button type="submit" class="header_search_button d-flex flex-column align-items-center justify-content-center menu_mm">
+					<i class="fa fa-search menu_mm" aria-hidden="true"></i>
+				</button>
+			</form>
+		</div>
+		<nav class="menu_nav">
+			<ul class="menu_mm">
+				<li class="menu_mm"><a href="{% url 'index' %}">Home</a></li>
+                <li class="menu_mm"><a href="{% url 'aboutus' %}">About Us</a></li>
+				<li class="menu_mm"><a href="{% url 'coursesus'%}">Courses</a></li>
+                <li class="menu_mm"><a href="{% url 'quizes' %}">Quizes</a></li>
+				<li class="menu_mm"><a href="{% url 'contactus' %}">Contact</a></li>
+			</ul>
+		</nav>
+		<div class="menu_extra">
+			<div class="menu_phone"><span class="menu_title">Email:</span>ksanpreet99@gmail.com</div>
+			<div class="menu_social">
+				<span class="menu_title">follow us</span>
+				<ul>
+					<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+					<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	
+	<!-- Home -->
+
+	<div class="home">
+		<!-- Background image artist https://unsplash.com/@thepootphotographer -->
+		<div class="home_background parallax_background parallax-window" data-parallax="scroll" data-image-src="{% static 'images/coureses.jpg' %}" data-speed="0.8"></div>
+		<div class="home_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="home_content text-center">
+							<div class="home_title">Online Courses</div>
+							<div class="breadcrumbs">
+								<ul>
+									<li><a href="#">Home</a></li>
+									<li>Courses</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Courses -->
+
+	<div class="courses">
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-10 offset-lg-1">
+					<div class="section_title text-center"><h2>Choose your course</h2></div>
+					<div class="section_subtitle">Choose from 50 online video courses with new additions published every month</div>
+				</div>
+			</div>
+
+			<!-- Course Search -->
+
+
+			<!-- Featured Course -->
+
+            <div class="row courses_row">
+				<!-- Course -->
+            {% for c in course %}
+				<div class="col-lg-4 col-md-6">
+					<div class="course">
+						<div class="course_image" style="height: 240px"><img src="{{ c.thumbnail.url }}" alt=""></div>
+						<div class="course_body">
+							<div class="course_header d-flex flex-row align-items-center justify-content-start">
+                                {% if c.is_new %}
+								<div class="course_tag"><a href="#">New</a></div>
+                                {% endif %}
+							</div>
+							<div class="course_title"><h3><a href="{{ c.slug }}">{{ c.Course_name }}</a></h3></div>
+                            <div class="featured_text" style="height: 100px">{{ c.description }}</div>
+							<div class="course_footer d-flex align-items-center justify-content-start">
+								<div class="course_author_image"><img src="{{ c.instructor_image.url }}" alt="https://unsplash.com/@anthonytran"></div>
+								<div class="course_author_name">By <a href="#">{{ c.instructor_name }}</a></div>
+							</div>
+						</div>
+					</div>
+				</div>
+            {% endfor %}
+            </div>
+
+
+			<!-- Pagination -->
+
+			</div>
+		</div>
+	</div>
+
+
+		<!-- Footer -->
+
+	<footer class="footer">
+		<div class="container">
+			<div class="row">
+
+				<!-- About -->
+				<div class="col-lg-3 footer_col">
+					<div class="footer_about">
+						<div class="logo_container">
+							<a href="#">
+								<div class="logo_content d-flex flex-row align-items-end justify-content-start">
+									<div class="logo_img"><img src="{% static 'images/logo.png'%}" alt=""></div>
+									<div class="logo_text">learn</div>
+								</div>
+							</a>
+						</div>
+						<div class="footer_about_text">
+							<p></p>
+						</div>
+						<div class="footer_social">
+							<ul>
+								<li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+							</ul>
+						</div>
+						<div class="copyright"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --><script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></div>
+					</div>
+				</div>
+
+				<div class="col-lg-3 footer_col">
+					<div class="footer_links">
+						<div class="footer_title">Quick menu</div>
+						<ul class="footer_list">
+							<li><a href="{% url 'index' %}">Home</a></li>
+							<li><a href="{% url 'aboutus' %}">About us</a></li>
+							<li><a href="#">Services</a></li>
+							<li><a href="{% url 'contactus' %}">Contact</a></li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-3 footer_col">
+					<div class="footer_links">
+						<div class="footer_title">Useful Links</div>
+						<ul class="footer_list">
+							<li><a href="{% url 'coursesus' %}">Courses</a></li>
+							<li><a href="#">Events</a></li>
+							<li><a href="#">Instructor</a></li>
+							<li><a href="#">Links</a></li>
+
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-3 footer_col">
+					<div class="footer_contact">
+						<div class="footer_title">Contact Us</div>
+						<div class="footer_contact_info">
+							<div class="footer_contact_item">
+								<div class="footer_contact_title">Address:</div>
+								<div class="footer_contact_line">Ujjain,Madhya Pradesh</div>
+							</div>
+							<div class="footer_contact_item">
+								<div class="footer_contact_title">Phone:</div>
+								<div class="footer_contact_line">+91 7440612765</div>
+							</div>
+							<div class="footer_contact_item">
+								<div class="footer_contact_title">Email:</div>
+								<div class="footer_contact_line">ksanpreet99@gmail.com</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
+
+
+
+<script src="{% static 'js/jquery-3.2.1.min.js'%}"></script>
+<script src="{% static 'styles/bootstrap4/popper.js'%}"></script>
+<script src="{% static 'styles/bootstrap4/bootstrap.min.js'%}"></script>
+<script src="{% static 'plugins/easing/easing.js'%}"></script>
+<script src="{% static 'plugins/parallax-js-master/parallax.min.js'%}"></script>
+<script src="{% static 'js/courses.js'%}"></script>
+</body>
+</html>

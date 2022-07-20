@@ -1,0 +1,107 @@
+{% block content %}
+    {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Add Quiz</title>
+    <link rel="icon" type="image/x-icon" href="{%  static 'images/logo.png'%}">
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{%  static 'styles/main_styles.css'%}">
+<script src="{% static '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' %}"></script>
+<link href="{% static 'styles/loginuser.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+
+
+	<!-- Menu -->
+
+<div >
+    <div class="col-md-6">
+        <h1>Add Question</h1>
+
+           <form action="" method="POST">
+              {% csrf_token %}<br>
+
+               <div style="color: white">
+
+                   {{ form.Quiz_name }}<br>
+
+                   {{ form.question }}<br>
+
+                   {{ form.option1 }}<br>
+
+                   {{ form.option2 }}<br>
+
+                   {{ form.option3 }}<br>
+
+                   {{ form.option4 }}<br>
+
+                   {{ form.ans }}<br>
+
+                   <p style="color: white">Select Course:   &nbsp;{{ form.course }}<br><br>
+
+                   <p style="color: white">Select Tutorial: &nbsp;{{ form.tutorial }}</p>
+
+               </div>
+
+
+              <div style="display: inline"> <input type="submit" name="Submit" style="width: 150px; float: left ">
+
+            </div>
+             </form>
+    </div>
+        </div>
+
+<a href="{% url 'maininst' %}" ><input type="submit" value="Done" style="width: 200px; height: 50px;float: right;margin-right: 30px;padding-bottom: 5px; " ></a>
+
+
+    <ul class="colorlib-bubbles">
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+</div>
+<script >
+
+		var form_fields = document.getElementsByTagName('input')
+        form_fields[1].placeholder='Quiz Name...';
+
+		form_fields[2].placeholder='Question...';
+
+		form_fields[3].placeholder='Option 1...';
+
+        form_fields[4].placeholder='Option 2...';
+
+        form_fields[5].placeholder='Option 3...';
+
+        form_fields[6].placeholder='Option 4...';
+
+        form_fields[7].placeholder='Answer...';
+
+
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+</script>
+
+
+{% endblock %}

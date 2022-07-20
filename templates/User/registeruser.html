@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head><title>User Registration</title>
+    <link rel="icon" type="image/x-icon" href="{%  static 'images/logo.png'%}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' %}"></script>
+<link href="{% static 'styles/registeruser.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Registration</h1>
+		<div class="main-agileinfo">
+        <a href="{% url 'main' %}"  onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'" style="font-weight: bold; font-size: 25px; margin-left:10px; color: white;"><strong>&#8617;</strong></a>
+			<div class="agileits-top">
+				<form action="" method="post" >
+                    {% csrf_token %}
+                    <div>
+
+
+                    {{ form.username }}<br>
+
+                    {{ form.email }}<br>
+
+                    {{ form.password1 }}<br>
+
+                    {{ form.password2 }}<br>
+                    </div>
+					<div class="wthree-text">
+						<label class="anim">
+							<input type="checkbox" class="checkbox" required="">
+							<span>I Agree To The Terms & Conditions</span>
+						</label>
+						<div class="clear"> </div>
+					</div>
+					<a href="{% url 'loginuser' %}"><input type="submit" value="Register"></a>
+				</form>
+                {% for field, error in form.errors.items %}
+        <div style="color:  white;">
+            {{ error|striptags }}
+        </div>
+        {% endfor %}
+
+			<br><p>Already have an Account? <a href="{% url 'loginuser'%}"> Login Now!</a></p>
+			</div>
+		</div>
+
+	</div>
+<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>	<!-- //main -->
+<script>
+
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Username..';
+        form_fields[2].placeholder='Email...';
+		form_fields[3].placeholder='Password...';
+        form_fields[4].placeholder='Confirm Password...';
+
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+	</script>
+
+</body>
+</html>

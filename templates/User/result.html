@@ -1,0 +1,161 @@
+{% block content %}
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Result</title>
+    <link rel="icon" type="image/x-icon" href="{%  static 'images/logo.png'%}">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Elearn project">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link href="{%  static 'plugins/font-awesome-4.7.0/css/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%  static 'plugins/OwlCarousel2-2.2.1/owl.carousel.css'%}">
+<link rel="stylesheet" type="text/css" href="{%  static 'plugins/OwlCarousel2-2.2.1/owl.theme.default.css'%}">
+<link rel="stylesheet" type="text/css" href="{%  static 'plugins/OwlCarousel2-2.2.1/animate.css'%}">
+<link href="{%  static 'plugins/video-js/video-js.css'%}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="{%  static 'styles/main_styles.css'%}">
+<link rel="stylesheet" type="text/css" href="{%  static 'styles/responsive.css'%}">
+    <link href="{% static 'styles/loginuser.css' %}" rel="stylesheet" type="text/css" media="all" />
+</head>
+<body>
+   <div class="header_container">
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="header_content d-flex flex-row align-items-center justify-content-start">
+							<div class="logo_container">
+								<a href="#">
+									<div class="logo_content d-flex flex-row align-items-end justify-content-start">
+										<div class="logo_img"><img src="{%  static 'images/logo.png'%}" alt=""></div>
+										<div class="logo_text">learn</div>
+									</div>
+								</a>
+							</div>
+                            <nav class="main_nav_contaner ml-auto">
+
+								<ul class="main_nav">
+									<li><a href="#"><strong>{{ course.Course_name }}</strong></a></li>
+								</ul>
+                                <div class="hamburger menu_mm">
+									<i class="fa fa-bars menu_mm" aria-hidden="true"></i>
+								</div>
+							</nav>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+    <div class="container ">
+    <div style="padding: 10px; margin: 20px;">
+        <div align="centre " style="width: 100%; height:500px; border:3px black solid">
+            <div style="color:white">
+
+                   <h1 style="text-decoration: underline">{{ user.username }}</h1>
+                <h1 >Quiz Score: {{score}}/{{ outoff }}</h1><br>
+                <p style="font-size: 25px; color:white">&emsp;Percentage: {{percent}}%</p><br>
+                <p style="font-size: 25px; color:white">&emsp;Time Taken: {{time}} seconds</p><br>
+                <p style="font-size: 25px; color:white">&emsp;Correct answers: {{correct}}</p><br>
+                <p style="font-size: 25px; color:white">&emsp;Incorrect answers: {{wrong}}</p><br>
+                <p style="font-size: 25px; color:white">&emsp;Total questions: {{total}}</p><br><br><br><br>
+
+                <h1 align="center">All the best for next quiz!</h1><br>
+
+            </div>
+            </div>
+
+    <div><br><br><br>
+    <h1> Correct Answers </h1>
+<br><br><br>
+        {% for q in quiz %}
+
+ <form >
+
+    <div class="form-group">
+        <div style="color: white">
+      <label for="question">{{q.question}}</label></div>
+    </div>
+
+    <div style="color: white">
+    <div class="form-check">
+        <div class="form-check">
+            {% if q.ans == 'option1' %}
+            <input class="form-check-input" type="checkbox" name="{{q.question}}" id="gridRadios1" value="option1" checked>
+            <label class="form-check-label" for="gridRadios1" >
+                {{q.option1}}
+            </label>
+                {% else %}
+                <label class="form-check-label" for="gridRadios1" style="color: grey">
+                {{q.option1}}
+            {% endif %}
+        </div>
+    </div>
+
+        <div class="form-check">
+            {% if q.ans == 'option2' %}
+            <input class="form-check-input" type="checkbox" name="{{q.question}}" id="gridRadios2" value="option2" checked>
+            <label class="form-check-label" for="gridRadios2">
+                {{q.option2}}
+            </label>
+                {% else %}
+                <label class="form-check-label" for="gridRadios1" style="color: grey">
+                {{q.option2}}
+            {% endif %}
+        </div>
+        <div class="form-check">
+            {% if q.ans == 'option3' %}
+            <input class="form-check-input" type="checkbox" name="{{q.question}}" id="gridRadios1" value="option3" checked>
+            <label class="form-check-label" for="gridRadios1">
+                {{q.option3}}
+            </label>
+                {% else %}
+                <label class="form-check-label" for="gridRadios1" style="color: grey" >
+                {{q.option3}}
+            {% endif %}
+        </div>
+        <div class="form-check">
+            {% if q.ans == 'option4' %}
+            <input class="form-check-input" type="checkbox" name="{{q.question}}" id="gridRadios2" value="option4" checked>
+            <label class="form-check-label" for="gridRadios2">
+                {{q.option4}}
+            </label>
+                {% else %}
+                <label class="form-check-label" for="gridRadios1" style="color: grey" >
+                {{q.option4}}
+            {% endif %}
+        </div>
+        <br>
+
+    </div>
+
+{% endfor %}
+
+  </form><br><br>
+    </div>
+    <a href="{% url 'quizes' %}">
+<input type="submit" VALUE="Back" style="width: 200px; float: right" >
+</a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
+ <ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>

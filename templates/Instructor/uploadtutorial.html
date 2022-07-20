@@ -1,0 +1,91 @@
+
+    {% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Upload Tutorial</title>
+    <link rel="icon" type="image/x-icon" href="{%  static 'images/logo.png'%}">
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+<link rel="stylesheet" type="text/css" href="{%  static 'styles/main_styles.css'%}">
+<script src="{% static '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' %}"></script>
+<link href="{% static 'styles/loginuser.css' %}" rel="stylesheet" type="text/css" media="all" />
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+
+</head>
+<body>
+
+<div class="super_container">
+
+	<!-- Header -->
+
+
+		<!-- Header Content -->
+
+		<!-- Header Search Panel -->
+
+
+</div>
+
+	<!-- Menu -->
+    <div class="main-w3layouts wrapper">
+    <div class="col-md-6">
+        <h1>Upload Tutorial</h1>
+        <div class="agileits-top">
+
+           <form action="" method="POST" enctype="multipart/form-data">
+              {% csrf_token %}
+               <div>
+
+                   {{ form.Tutorial_name }}<br>
+
+                   {{ form.Tutorial }}<br>
+
+                   {{ form.Tutorial_video }}<br>
+
+                   <p style="color:white;" >Select Course:  {{ form.course }}</p>
+
+               </div>
+             <input type="submit" name="Submit" style="width: 150px; float: right ">
+             </form>
+
+            </div>
+        </div>
+    </div>
+<a href="{% url 'maininst' %}" ><input type="submit" value="Back" style="width: 200px; height: 50px;float: right;margin-right: 30px;padding-bottom: 5px; " ></a>
+
+
+
+<ul class="colorlib-bubbles">
+
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+
+<script>
+
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Tutorial Name...';
+
+		form_fields[2].placeholder='Upload Tutorial...';
+
+        form_fields[3].placeholder='Upload Video...';
+
+
+
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+</script>
+</body>
+</html>

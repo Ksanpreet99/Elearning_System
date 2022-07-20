@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head><title>Instructor Login</title>
+    <link rel="icon" type="image/x-icon" href="{%  static 'images/logo.png'%}">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<script src="{% static '//ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js' %}"></script>
+<link href="{% static 'styles/loginuser.css' %}" rel="stylesheet" type="text/css" media="all" />
+
+<link href="//fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i" rel="stylesheet">
+
+</head>
+<body>
+	<!-- main -->
+	<div class="main-w3layouts wrapper">
+		<h1>Instructor Log-in</h1>
+		<div class="main-agileinfo">
+        <a href="{% url 'main' %}"  onMouseOver="this.style.color='black'" onMouseOut="this.style.color='white'" style="font-weight: bold; font-size: 25px; margin-left:10px; color: white;"><strong>&#8617;</strong></a>
+			<div class="agileits-top">
+
+				<form action="" method="post">
+					 {% csrf_token %}
+                    <div>
+                    {{ form.username }}<br>
+
+                    {{ form.password }}<br>
+                     </div>
+
+				<input type="submit" value="Log-in">
+				</form>
+                <br><br>
+                {% for message in messages %}
+            <p id="messages">{{ message }}</p>
+        {% endfor %}
+                                			<br>	<p><a href="{% url 'reset_password'%}">Forgot Password?</a></p>
+
+			</div>
+		</div>
+	</div>
+    <ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+<script>
+
+		var form_fields = document.getElementsByTagName('input')
+		form_fields[1].placeholder='Username...';
+
+		form_fields[2].placeholder='Password...';
+
+
+
+		for (var field in form_fields){
+			form_fields[field].className += ' form-control'
+		}
+</script>
+	<!-- //main -->
+</body>
+</html>
