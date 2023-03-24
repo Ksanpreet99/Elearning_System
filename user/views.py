@@ -51,7 +51,7 @@ def registeruser(request):
             mail_list = emails.split()
             print(mail_list)
             title = "Welcome! Thanks for creating an account at Elearn."
-            message = "\nHello " + username + ",\n\nThank you for joining.We’d like to confirm that your account was created successfully.If you experience any issues logging into your account, reach out to us at.\n\nRegards,\n\nThe Elearn Team"
+            message = "\nHello " + username + ",\n\nThank you for joining.We’d like to confirm that your account was created successfully.\nIf you experience any issues logging into your account, reach out to us at elearn.skb@gmail.com.\n\nRegards,\n\nThe Elearn Team"
             send_mail(
                 title,
                 message,
